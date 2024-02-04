@@ -1,11 +1,11 @@
 import React from 'react'
 import { Text, View } from 'react-native'
 
-export const Scan = () => {
+export const EditPasswordScreen = () => {
   return (
     <View>
         <Text>
-            Scan page 
+            edit password
         </Text>
     </View>
   )

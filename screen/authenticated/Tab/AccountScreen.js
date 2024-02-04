@@ -1,7 +1,7 @@
 import React from 'react'
 import { Text, View } from 'react-native'
 
-export const Account = () => {
+export const AccountScreen = () => {
   return (
    <View>
     <Text>

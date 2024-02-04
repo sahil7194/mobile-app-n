@@ -1,11 +1,11 @@
 import React from 'react'
 import { Text, View } from 'react-native'
 
-export const MakePayment = () => {
+export const ResetPasswordScreen = () => {
   return (
     <View>
         <Text>
-            Make Payment page 
+            Reset Password Screen
         </Text>
     </View>
   )

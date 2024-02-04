@@ -1,11 +1,11 @@
 import React from 'react'
 import { Text, View } from 'react-native'
 
-export const EditPassword = () => {
+export const CouponInfoScreen = () => {
   return (
     <View>
         <Text>
-            edit password
+            CouponInfo page 
         </Text>
     </View>
   )

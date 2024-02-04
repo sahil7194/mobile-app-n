@@ -1,11 +1,11 @@
 import React from 'react'
 import { Text, View } from 'react-native'
 
-export const CouponInfo = () => {
+export const HistoryScreen = () => {
   return (
     <View>
         <Text>
-            CouponInfo page 
+            This is the history page.
         </Text>
     </View>
   )

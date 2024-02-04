@@ -1,11 +1,11 @@
 import React from 'react'
 import { Text, View } from 'react-native'
 
-export const Result = () => {
+export const MakePaymentScreen = () => {
   return (
     <View>
         <Text>
-            Result page 
+            Make Payment page 
         </Text>
     </View>
   )

@@ -1,7 +1,7 @@
 import React from 'react'
 import { Text, View } from 'react-native'
 
-export const ShopInfo = () => {
+export const ShopInfoScreen = () => {
   return (
    <View>
     <Text>

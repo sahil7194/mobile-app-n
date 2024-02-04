@@ -1,11 +1,11 @@
 import React from 'react'
 import { Text, View } from 'react-native'
 
-export const History = () => {
+export const ScanScreen = () => {
   return (
     <View>
         <Text>
-            This is the history page.
+            Scan page 
         </Text>
     </View>
   )
