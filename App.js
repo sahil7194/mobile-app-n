@@ -1,12 +1,30 @@
-import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
+import { Unauthenticated} from './navigation/Unauthenticated';
+import { Stack } from './navigation/Stack';
+import  MainTabNavigator  from './navigation/MainTabNavigator';
+import { PaperProvider } from 'react-native-paper';
+import { NavigationContainer } from '@react-navigation/native';
+
+
+const isAuthenticated = true;
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <PaperProvider>
+      <NavigationContainer>
+        <MainTabNavigator></MainTabNavigator>
+      </NavigationContainer>
+
+    {/* <View>
+     {isAuthenticated ?  (
+        <>
+          <Stack />
+          <MainTabNavigator />
+        </>
+      ) : <Unauthenticated /> }
+
+    </View> */}
+    </PaperProvider>
   );
 }
 
