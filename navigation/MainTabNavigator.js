@@ -30,18 +30,18 @@ const MainTabNavigator = () => (
             <MaterialCommunityIcons name="qrcode" color={color} size={size} />
           ),
         }}/>
+          <Tab.Screen name="PaymentHistory" component={HistoryScreen} 
+          options={{
+            tabBarLabel: 'PaymentHistory',
+            tabBarIcon: ({ color, size }) => (
+              <MaterialCommunityIcons name="history" color={color} size={size} />
+            ),
+          }}/>
         <Tab.Screen name="Account" component={AccountScreen} 
         options={{
           tabBarLabel: 'Account',
           tabBarIcon: ({ color, size }) => (
             <MaterialCommunityIcons name="account" color={color} size={size} />
-          ),
-        }}/>
-        <Tab.Screen name="PaymentHistory" component={HistoryScreen} 
-        options={{
-          tabBarLabel: 'PaymentHistory',
-          tabBarIcon: ({ color, size }) => (
-            <MaterialCommunityIcons name="history" color={color} size={size} />
           ),
         }}/>
       </Tab.Navigator>
