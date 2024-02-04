@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "mobile-app",
-    "slug": "mobile-app",
+    "name": "Nearme ",
+    "slug": "Find best  places to visit in your city",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
