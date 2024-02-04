@@ -1,5 +1,5 @@
 import { StyleSheet, Text, View } from 'react-native';
-import { Unauthenticated} from './navigation/Unauthenticated';
+import Unauthenticated from './navigation/Unauthenticated';
 import { Stack } from './navigation/Stack';
 import  MainTabNavigator  from './navigation/MainTabNavigator';
 import { PaperProvider } from 'react-native-paper';
@@ -12,7 +12,8 @@ export default function App() {
   return (
     <PaperProvider>
       <NavigationContainer>
-        <MainTabNavigator></MainTabNavigator>
+        <Unauthenticated/>
+        {/* <MainTabNavigator></MainTabNavigator> */}
       </NavigationContainer>
 
     {/* <View>

@@ -1,12 +1,19 @@
 import React from 'react'
-import { Text, View } from 'react-native'
+import { Text, View ,SafeAreaView ,StatusBar , Button} from 'react-native'
 
-export const SignupScreen = () => {
+export const SignupScreen = ({ navigation }) => {
   return (
+    <SafeAreaView style={{ marginTop: StatusBar.currentHeight || 0 }}>
     <View>
-        <Text>
-            Signup Screen
-        </Text>
+    <Text>
+    SignupScreen
+    </Text>
+    <Button
+        title="Go to Login "
+        onPress={() => navigation.navigate('Login')}
+      />
+
     </View>
+  </SafeAreaView>
   )
 }

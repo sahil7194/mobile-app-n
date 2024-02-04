@@ -1,12 +1,17 @@
 import React from 'react'
 import { Text, View } from 'react-native'
+import { Text, View ,SafeAreaView ,StatusBar } from 'react-native'
+
 
 export const ResultScreen = () => {
   return (
-    <View>
-        <Text>
-            Result page 
-        </Text>
-    </View>
+    <SafeAreaView style={{ marginTop: StatusBar.currentHeight || 0 }}>
+      <View>
+      <Text>
+      ResultScreen
+      </Text>
+
+      </View>
+    </SafeAreaView>
   )
 }
