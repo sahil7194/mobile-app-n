@@ -10,7 +10,10 @@ export const HomeScreen = ({ navigation }) => {
       </Text>
       <Button
         title="Go to Result"
-        onPress={() => navigation.navigate('Result')}
+        onPress={() => navigation.navigate('Result',{
+          categoryId:1,
+          categoryName:"Education"
+        })}
       />
       </View>
     </SafeAreaView>
