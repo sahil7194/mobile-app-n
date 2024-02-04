@@ -1,5 +1,4 @@
 import React from 'react'
-import { Text, View } from 'react-native'
 import { Text, View ,SafeAreaView ,StatusBar } from 'react-native'
 
 export const EditProfileScreen = () => {

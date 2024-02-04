@@ -1,5 +1,4 @@
 import React from 'react'
-import { View , Text} from 'react-native'
 import { Text, View ,SafeAreaView ,StatusBar } from 'react-native'
 
 export const AvailableCouponsScreen = () => {
