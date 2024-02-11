@@ -5,7 +5,7 @@ export const HomeScreen = ({ navigation }) => {
   return (
     <SafeAreaView style={{ marginTop: StatusBar.currentHeight || 0 }}>
       <View>
-      <Text>
+      <Text className="border border-red-500">
         Home Screen
       </Text>
       <Button
