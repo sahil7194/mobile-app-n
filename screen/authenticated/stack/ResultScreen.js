@@ -11,7 +11,7 @@ export const ResultScreen = ({ route, navigation }) => {
   return (
     <SafeAreaView style={{ marginTop: StatusBar.currentHeight || 0 }}>
       
-      <View>
+      <View className="">
         <Text>ResultScreen with search query </Text>
         <Text>Category Id : {JSON.stringify(categoryId)} </Text>
         <Text>Category Name : {JSON.stringify(categoryName)} </Text>
@@ -20,12 +20,12 @@ export const ResultScreen = ({ route, navigation }) => {
           onPress={() => navigation.navigate("ShopInfo", { shopId: 1 })}
         /> */}
       </View>
-
-      <FlatList
+      <FlatList      
         data={data}
         renderItem={RenderResult}
         keyExtractor={(item) => item.id}
       />
+
 
     </SafeAreaView>
   );
