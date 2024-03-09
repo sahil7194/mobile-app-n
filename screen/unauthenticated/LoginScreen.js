@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
-import { Text, View, SafeAreaView, StatusBar, Button, Image, TextInput } from 'react-native'
-import { storeData ,retrieveData} from '../../services/LocalStorageService'
+import { Text, View, SafeAreaView, StatusBar, Button, Image, TextInput } from 'react-native';
+import { storeData ,retrieveData} from '../../services/LocalStorageService';
+import { useMyState } from '../../services/UnauthticatedService';
 
 export const LoginScreen = ({ navigation }) => {
 
@@ -8,15 +9,18 @@ export const LoginScreen = ({ navigation }) => {
   const [password, setPassword] = useState('');
 
   const login = () => {
-    // const formData = {
-    //   email: email.trim(),
-    //   password: password.trim()
-    // }
-    // console.log('login button', formData);
-    // storeData('name','sahil');
+
+    const {value,   setValueAndUpdate,} = useMyState()
+    
+    const formData = {
+      email: email.trim(),
+      password: password.trim()
+    }
+    console.log(value);
+
   }
 
-  const  handleTextChange = (field, value) => {
+  const handleTextChange = (field, value) => {
 
     if(field === "email"){
       setEmail(value);
