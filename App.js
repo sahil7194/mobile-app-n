@@ -3,7 +3,7 @@ import { PaperProvider } from 'react-native-paper';
 import { NavigationContainer } from '@react-navigation/native';
 import StackNavigation from './navigation/StackNavigation'
 
-const isAuthenticated = true;
+const isAuthenticated = false;
 
 export default function App() {
   return (
