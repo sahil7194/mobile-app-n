@@ -8,15 +8,11 @@ export const LoginScreen = ({ navigation }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const login = () => {
-
-    const {value,   setValueAndUpdate,} = useMyState()
-    
+  const login = () => {    
     const formData = {
       email: email.trim(),
       password: password.trim()
     }
-    console.log(value);
 
   }
 
