@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react'
 import { Text, View, SafeAreaView, StatusBar, Button, Image, TextInput } from 'react-native';
 import { storeData ,retrieveData} from '../../services/LocalStorageService';
 import {AuthContext } from '../../Context/AuthContext';
-
+import { login } from '../../services/UnauthticatedService'
 export const LoginScreen = ({ navigation }) => {
 
   const {auth, setAuth} = useContext(AuthContext) ;
@@ -10,12 +10,16 @@ export const LoginScreen = ({ navigation }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const loginForm = () => {  
-    const formData = {
-      email: email.trim(),
-      password: password.trim()
-    }
-  
+  const loginForm =  () => {  
+      const result =  login({
+        email: email.trim(),
+        password: password.trim()
+      }).then((respsone )=>{
+          if(respsone.status == "success"){
+            storeData('auth_token',respsone.token);
+            setAuth(true);
+          }
+      });      
   }
 
   const handleTextChange = (field, value) => {

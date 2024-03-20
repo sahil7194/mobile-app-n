@@ -1,4 +1,19 @@
 import { useState } from "react";
+import axios from "axios";
+// import envirnoments from '../environments/environments'
+
+//  const  apiUrl = envirnoments.apiUrls;
+
+export const apiUrl = 'http://192.168.1.64/api/';
+
+
+export const client = axios.create({
+  baseURL: apiUrl,
+  headers: {
+    'Accept': 'application/json',
+  }
+});
+
 
 export const isAuthenticated = () => {
 
@@ -8,8 +23,17 @@ export const isAuthenticated = () => {
 }
 
 export const login = (formData) => {
-  console.warn('user want to log with ', formData);
-}
+  return new Promise((resolve, reject) => {
+    client.post('login', formData)
+      .then((response) => {
+        resolve(response.data);
+      })
+      .catch((error) => {
+        reject(error);
+      });
+  });
+};
+
 
 export const logout = () => {
   setIsAuthenticated(true);
@@ -27,17 +51,3 @@ export const resetPassword = (formData) => {
 export const updatePassword = (formData) => {
   console.log('update user password with  :', formData);
 }
-
-export const useMyState = () => {
-  const [value, setValue] = useState('this my state');
-
-  // Expose setter and getter functions
-  const setValueAndUpdate = (newValue) => {
-    setValue(newValue);
-  };
-
-  return {
-    value,
-    setValueAndUpdate,
-  };
-};
