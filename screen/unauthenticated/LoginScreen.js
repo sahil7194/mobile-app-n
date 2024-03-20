@@ -63,6 +63,9 @@ export const LoginScreen = ({ navigation }) => {
           <Button title='login'
             className="mt-5" onPress={loginForm}
           />
+           <Button title='Signup'
+            className="mt-5" onPress={() => navigation.navigate('Signup')}
+          />
         </View>
       </View>
     </SafeAreaView>
