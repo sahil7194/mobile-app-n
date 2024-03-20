@@ -2,12 +2,15 @@ import Unauthenticated from './navigation/Unauthenticated';
 import { PaperProvider } from 'react-native-paper';
 import { NavigationContainer } from '@react-navigation/native';
 import StackNavigation from './navigation/StackNavigation';
-import { isAuthenticated} from './services/UnauthticatedService';
-
-const auth = false;
+import { AuthContext }  from './Context/AuthContext';
+import { useState } from 'react';
 
 export default function App() {
+
+  const [auth, setAuth] = useState(false);
+
   return (
+    <AuthContext.Provider value={{auth,setAuth}}>
     <PaperProvider>
       <NavigationContainer>
         {
@@ -19,5 +22,6 @@ export default function App() {
         }
       </NavigationContainer>
     </PaperProvider>
+    </AuthContext.Provider>
   );
 }

@@ -1,23 +1,25 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { Text, View, SafeAreaView, StatusBar, Button, Image, TextInput } from 'react-native';
 import { storeData ,retrieveData} from '../../services/LocalStorageService';
-import { useMyState } from '../../services/UnauthticatedService';
+import {AuthContext } from '../../Context/AuthContext';
 
 export const LoginScreen = ({ navigation }) => {
+
+  const {auth, setAuth} = useContext(AuthContext) ;
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const login = () => {    
+  const loginForm = () => {  
     const formData = {
       email: email.trim(),
       password: password.trim()
     }
-
+  
   }
 
   const handleTextChange = (field, value) => {
-
+  
     if(field === "email"){
       setEmail(value);
     } else if(field === "password"){   
@@ -55,7 +57,7 @@ export const LoginScreen = ({ navigation }) => {
             onChangeText={(value) => handleTextChange( "password", value )}
           />
           <Button title='login'
-            className="mt-5" onPress={login}
+            className="mt-5" onPress={loginForm}
           />
         </View>
       </View>
