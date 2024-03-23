@@ -9,22 +9,23 @@ export const storeData = async (key, value) => {
     }
   };
 
- export const retrieveData = async (key) => {
-    try {
-      const value = await AsyncStorage.getItem(key);
-      if (value !== null) {
-        // console.log('Retrieved data:', value);
-        return value;
-      } else {
-        console.log('No data found for the key:', key);
-        return null;
-      }
-    } catch (error) {
-      console.log('Error retrieving data:', error);
-      return null;
-    }
+  export const retrieveData = (key) => {
+    return new Promise((resolve, reject) => {
+      AsyncStorage.getItem(key)
+        .then((value) => {
+          if (value !== null) {
+            resolve(value);
+          } else {
+            console.log('No data found for the key:', key);
+            resolve(null);
+          }
+        })
+        .catch((error) => {
+          console.log('Error retrieving data:', error);
+          reject(error);
+        });
+    });
   };
-
 
  export const removeData = async (key) => {
     try {
