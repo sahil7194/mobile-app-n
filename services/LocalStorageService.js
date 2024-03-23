@@ -15,10 +15,7 @@ export const storeData = async (key, value) => {
         .then((value) => {
           if (value !== null) {
             resolve(value);
-          } else {
-            console.log('No data found for the key:', key);
-            resolve(null);
-          }
+          } 
         })
         .catch((error) => {
           console.log('Error retrieving data:', error);

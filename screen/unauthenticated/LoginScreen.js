@@ -26,7 +26,6 @@ export const LoginScreen = ({ navigation }) => {
       if (respsone.status == "success") {
         storeData('auth_token', respsone.token);
         setAuth(true);
-        checkForToken();
       }
     });
   }
