@@ -1,5 +1,5 @@
 import React from 'react'
-import { Text, View , Button } from 'react-native'
+import { Text, View , Button, Image } from 'react-native'
 import { useNavigation, useRoute } from '@react-navigation/native'
 
 export const CategoryItem = ({category}) => {
@@ -10,6 +10,12 @@ export const CategoryItem = ({category}) => {
 
   return (
     <View>
+       <Image
+      className="w-full h-36"
+       source={{
+         uri: image,
+       }}
+     />
       <Text>
         {id}
       </Text>

@@ -1,6 +1,6 @@
 import React from 'react'
-import { View, Text , Image, StyleSheet , TouchableOpacity} from 'react-native'
-import { ResultStub } from '../../stub/result.stub';
+import { View, Text , Image, StyleSheet , TouchableOpacity , Button} from 'react-native'
+import { useNavigation, useRoute } from '@react-navigation/native'
 
 const styles = StyleSheet.create({
    container: {
@@ -11,11 +11,11 @@ const styles = StyleSheet.create({
    },
  });
 
-export const ResultItem = ({ route, navigation }) => {
+export const ResultItem = ({ shop }) => {
 
-   // const {shop } = route.params;c
-   // console.log(route.params);
-    const  {id , name, rating , address , img_url , views, open_status, contact_number, opne_time, close_time} = ResultStub[0];
+   const  navigation = useNavigation();
+
+   const  {id , name, rating , address , image , views } = shop;
 
   return (
      <TouchableOpacity className="flex flex-row" >
@@ -24,7 +24,7 @@ export const ResultItem = ({ route, navigation }) => {
       style={styles.stretch}
       className="w-full h-36"
        source={{
-         uri: img_url,
+         uri: image,
        }}
      />
          </View>
@@ -41,6 +41,12 @@ export const ResultItem = ({ route, navigation }) => {
          <Text className="my-1 h-16 overflow-hidden ">
             {address}
          </Text>
+         </View>
+         <View>
+            <Button
+             title="Go to ShopInfo"
+             onPress={() => navigation.navigate("ShopInfo", { shopId: id })}
+           />
          </View>
      </TouchableOpacity>
   )
