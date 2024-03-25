@@ -10,7 +10,6 @@ export const HomeScreen = ({ navigation }) => {
   const getCategory = () => {
       get('categories').then((response) => {
         setCategoryData(response.data);
-        console.log('data get ');
       }).catch((err) => {
         console.log(err);
       });
