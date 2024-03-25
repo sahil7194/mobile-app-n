@@ -4,6 +4,7 @@ import { RenderCategory } from '../../../components/authenticated/RenderCategory
 import { get } from '../../../services/ApiServices';
 import { Search } from '../../../components/authenticated/Search';
 import { Button, Layout, Text } from '@ui-kitten/components';
+import { ButtonGroup , Icon } from '@rneui/themed';
 
 export const HomeScreen = ({ navigation }) => {
 
@@ -21,6 +22,8 @@ export const HomeScreen = ({ navigation }) => {
 
   categoryData.length === 0 ? getCategory() : null;
 
+  const [selectedIndex, setSelectedIndex] = useState(0);
+
   return (
     <SafeAreaView style={{ marginTop: StatusBar.currentHeight || 0 }}>
 
@@ -31,6 +34,17 @@ export const HomeScreen = ({ navigation }) => {
         <Text>
           Adds section
         </Text>
+        <ButtonGroup
+         buttonStyle={{ padding: 10 }}
+         selectedButtonStyle={{ backgroundColor: '#e2e2e2' }}
+         buttons={[
+           <Icon name="format-align-left" />,
+           <Icon name="format-align-center" />,
+           <Icon name="format-align-right" />,
+         ]}
+         selectedIndex={selectedIndex}
+         onPress={setSelectedIndex}
+       />
         <Layout
           level='1'
         >
