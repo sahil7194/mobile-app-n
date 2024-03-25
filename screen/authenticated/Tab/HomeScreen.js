@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { Text, View ,SafeAreaView ,StatusBar ,Button, FlatList  } from 'react-native'
 import { RenderCategory } from '../../../components/authenticated/RenderCategory';
 import { get } from '../../../services/ApiServices';
+import { Search } from '../../../components/authenticated/Search';
 
 export const HomeScreen = ({ navigation }) => {
 
@@ -21,9 +22,7 @@ export const HomeScreen = ({ navigation }) => {
     <SafeAreaView style={{ marginTop: StatusBar.currentHeight || 0 }}>
 
       <View className="border border-red-500">
-        <Text>
-          search compoent 
-        </Text>
+        <Search/>
       </View>
       <View className="border border-red-500">
         <Text>

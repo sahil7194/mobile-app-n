@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Text, View, SafeAreaView, StatusBar, Button, Image } from 'react-native'
 import { get } from '../../../services/ApiServices';
+import { Search } from '../../../components/authenticated/Search';
 
 export const ShopInfoScreen = ({ route, navigation }) => {
   const { shopId } = route.params;
@@ -30,10 +31,12 @@ export const ShopInfoScreen = ({ route, navigation }) => {
     })
 
   }
+  
   name === undefined ? getShopInfo() : null;
 
   return (
     <SafeAreaView style={{ marginTop: StatusBar.currentHeight || 0 }}>
+      <Search/>
       <View>
         <Text>
           ShopInfoScreen
