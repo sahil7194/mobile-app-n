@@ -7,7 +7,7 @@ import {retrieveData } from './LocalStorageService';
 // export const apiUrl = envirnoments.apiUrl;
 export const apiUrl = 'http://192.168.1.64/api/';
 
-export const authToken = retrieveData('authToken').
+export const authToken = retrieveData('auth_token').
 then((token) => {
      return token
     }).catch((err) =>{
