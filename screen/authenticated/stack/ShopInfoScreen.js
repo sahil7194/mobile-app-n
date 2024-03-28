@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { Text, View, SafeAreaView, StatusBar, Button, Image } from 'react-native'
 import { get } from '../../../services/ApiServices';
 import { Search } from '../../../components/authenticated/Search';
-import { Rating, RatingProps } from '@rneui/themed';
+
 
 export const ShopInfoScreen = ({ route, navigation }) => {
   const { shopId } = route.params;
@@ -33,52 +33,37 @@ export const ShopInfoScreen = ({ route, navigation }) => {
 
   }
 
-  const ratingCompleted = (rating ) => {
-    console.log('Rating is: ' + rating);
-  };
-  
   name === undefined ? getShopInfo() : null;
 
   return (
     <SafeAreaView style={{ marginTop: StatusBar.currentHeight || 0 }}>
-      <Search/>
-      <View>
-        <Text>
-          ShopInfoScreen
-        </Text>
-        <Text>ShopId : {shopId}</Text>
+      <Search />
+      <View className="p-1">
         <Image
           className="w-full h-64"
           source={{
             uri: image,
           }} />
 
-        <Text> {name}</Text>
-        <Text> {address}</Text>
-        <Text> {contact_number}</Text>
-        <Text> {opne_status}</Text>
-        <Text> {open_time}</Text>
-        <Text> {close_time}</Text>
-        <Text> {rating}</Text>
-        <Text> {views}</Text>
-        <Text> {latitude}</Text>
-        <Text> {longitude}</Text>
-        <Text> {zoom_level}</Text>
-
+        <View className="border border-red-400 p-3">
+          <Text className="p-1 text-lg"> Shop Name :- {name}</Text>
+          <Text className="p-1"> Shop Address :- {address}</Text>
+          <Text className="p-1"> Shop Contact Number :- {contact_number}</Text>
+          {/* 
+          // update shop status and shop color
+          <Text className="p-1"> Shop Open Status :-  {opne_status}</Text> 
+          */}
+          <Text className="p-1"> Time :-  {open_time} To  {close_time}</Text>
+          <Text className="p-1"> Rating : -{rating}</Text>
+          <Text className="p-1"> Views :-  {views}</Text>
+          {/* TODO: use for geo location
+           <Text className="p-1"> Latitude :- {latitude}</Text>
+          <Text className="p-1"> Longitude :-  {longitude}</Text>
+          <Text className="p-1"> Zoom Level :- {zoom_level}</Text> */}
+        </View>
         <Button
           title="Go to Home"
           onPress={() => navigation.navigate('Home')}
-        />
-
-<Rating
-          showRating
-          type="star"
-          fractions={1}
-          startingValue={3.6}
-          readonly
-          imageSize={40}
-          onFinishRating={ratingCompleted}
-          style={{ paddingVertical: 10 }}
         />
       </View>
     </SafeAreaView>

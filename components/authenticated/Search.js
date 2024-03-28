@@ -10,7 +10,7 @@ export const Search = () => {
 
     return (
         <View className="p-1 flex flex-row">
-            <View className="border border-green-500 p-1 w-3/4">
+            <View className="p-1 w-3/4">
                 <TextInput
                     placeholder="Search "
                     autoCapitalize="none"
@@ -20,7 +20,7 @@ export const Search = () => {
                     onChangeText={(value) => setSearchQuery(value)}
                 />
             </View>
-            <View className="border border-yellow-400 p-1">
+            <View className="p-1">
                 <Button
                     title="search"
                     onPress={() => navigation.navigate('Result', {

@@ -4,7 +4,6 @@ import { RenderCategory } from '../../../components/authenticated/RenderCategory
 import { get } from '../../../services/ApiServices';
 import { Search } from '../../../components/authenticated/Search';
 import { Text } from '@ui-kitten/components';
-import { Carousel } from 'react-native-ui-lib';
 
 export const HomeScreen = ({ navigation }) => {
 
