@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { View, SafeAreaView, StatusBar, FlatList } from 'react-native'
-import { RenderCategory , CategoriesList } from '../../../components/authenticated/RenderCategory';
+import { RenderCategory  } from '../../../components/authenticated/RenderCategory';
 import { get } from '../../../services/ApiServices';
 import { Search } from '../../../components/authenticated/Search';
 import { Text } from '@ui-kitten/components';
