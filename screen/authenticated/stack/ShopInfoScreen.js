@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { Text, View, SafeAreaView, StatusBar, Button, Image } from 'react-native'
 import { get } from '../../../services/ApiServices';
 import { Search } from '../../../components/authenticated/Search';
+import { Rating, RatingProps } from '@rneui/themed';
 
 export const ShopInfoScreen = ({ route, navigation }) => {
   const { shopId } = route.params;
@@ -31,6 +32,10 @@ export const ShopInfoScreen = ({ route, navigation }) => {
     })
 
   }
+
+  const ratingCompleted = (rating ) => {
+    console.log('Rating is: ' + rating);
+  };
   
   name === undefined ? getShopInfo() : null;
 
@@ -65,6 +70,16 @@ export const ShopInfoScreen = ({ route, navigation }) => {
           onPress={() => navigation.navigate('Home')}
         />
 
+<Rating
+          showRating
+          type="star"
+          fractions={1}
+          startingValue={3.6}
+          readonly
+          imageSize={40}
+          onFinishRating={ratingCompleted}
+          style={{ paddingVertical: 10 }}
+        />
       </View>
     </SafeAreaView>
   )
