@@ -1,13 +1,11 @@
 import React, { useState } from 'react'
-import { View, SafeAreaView, StatusBar, FlatList, ScrollView} from 'react-native'
-import { RenderCategory } from '../../../components/authenticated/RenderCategory';
+import { View, SafeAreaView, StatusBar, FlatList } from 'react-native'
+import { RenderCategory , CategoriesList } from '../../../components/authenticated/RenderCategory';
 import { get } from '../../../services/ApiServices';
 import { Search } from '../../../components/authenticated/Search';
 import { Text } from '@ui-kitten/components';
 
 export const HomeScreen = ({ navigation }) => {
-
-  const [counter, setCounter] = useState(0);
 
   const [categoryData, setCategoryData] = useState([]);
 
@@ -34,10 +32,6 @@ export const HomeScreen = ({ navigation }) => {
       </View>
 
       <View className="m-1 p-1">
-        <Text>
-          Category section
-        </Text>
- 
         <FlatList
           data={categoryData}
           renderItem={RenderCategory}
