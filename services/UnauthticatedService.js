@@ -4,7 +4,7 @@ import axios from "axios";
 
 //  const  apiUrl = envirnoments.apiUrls;
 
-export const apiUrl = 'http://192.168.1.64/api/';
+export const apiUrl = 'http://192.168.145.134/api/';
 
 
 export const client = axios.create({
@@ -41,7 +41,15 @@ export const logout = () => {
 }
 
 export const signUp = (formData) => {
-  console.log("User wants to create an account: ", formData);
+  return new Promise((resolve, reject) => {
+    client.post('signup', formData)
+      .then((response) => {
+        resolve(response.data);
+      })
+      .catch((error) => {
+        reject(error);
+      });
+  });
 }
 
 export const resetPassword = (formData) => {

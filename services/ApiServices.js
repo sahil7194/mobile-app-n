@@ -4,8 +4,8 @@ import envirnoments from '../environments/environments';
 import {retrieveData } from './LocalStorageService';
 
 // TODO: need to update logic
-// export const apiUrl = envirnoments.apiUrl;
-export const apiUrl = 'http://192.168.1.64/api/';
+export const apiUrl = envirnoments.apiUrl;
+// export const apiUrl = 'http://192.168.1.64/api/';
 
 export const authToken = retrieveData('auth_token').
 then((token) => {
