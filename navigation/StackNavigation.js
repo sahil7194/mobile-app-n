@@ -9,6 +9,7 @@ import { EditPasswordScreen } from '../screen/authenticated/stack/EditPasswordSc
 import { EditProfileScreen} from '../screen/authenticated/stack/EditProfileScreen';
 import { MakePaymentScreen} from '../screen/authenticated/stack/MakePaymentScreen';
 import { ShopInfoScreen } from '../screen/authenticated/stack/ShopInfoScreen';
+import { AfterQrCodeScanScree } from '../screen/authenticated/stack/AfterQrCodeScanScree';
 
 const Stack = createNativeStackNavigator();
 
@@ -27,6 +28,7 @@ const StackNavigation = () => (
     <Stack.Screen name="EditProfile" component={EditProfileScreen} />
     <Stack.Screen name="MakePayment" component={MakePaymentScreen} />
     <Stack.Screen name="ShopInfo" component={ShopInfoScreen} />
+    <Stack.Screen name="AfterQrCodeScanDone" component={AfterQrCodeScanScree} />
   </Stack.Navigator>
 );
 
