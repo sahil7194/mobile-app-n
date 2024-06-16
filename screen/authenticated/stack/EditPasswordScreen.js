@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Text, View, SafeAreaView, StatusBar, Button, TextInput } from 'react-native'
-import { post } from '../../../services/ApiServices';
+import { put } from '../../../services/ApiServices';
 import { retrieveData } from '../../../services/LocalStorageService';
 
 export const EditPasswordScreen = ({ navigation }) => {
@@ -35,8 +35,8 @@ export const EditPasswordScreen = ({ navigation }) => {
         "new_password": password,
         "confirm_password": cn_password
       }
-      post('change-password', postData).then((res) => {
-        console.log(res, postData);
+      put('change-password', postData).then((res) => {
+        console.log(res.data);
 
       }).catch((err) => {
         console.error(err)

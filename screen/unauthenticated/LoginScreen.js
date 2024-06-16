@@ -2,10 +2,15 @@ import React, { useContext, useState } from 'react'
 import { Text, View, SafeAreaView, StatusBar, Button, Image, TextInput } from 'react-native';
 import { storeData, retrieveData } from '../../services/LocalStorageService';
 import { AuthContext } from '../../Context/AuthContext';
-import { login } from '../../services/UnauthticatedService'
+import { login } from '../../services/UnauthticatedService';
+import { useToast } from "react-native-toast-notifications";
+
 export const LoginScreen = ({ navigation }) => {
 
   const { auth, setAuth } = useContext(AuthContext);
+
+  const toast = useToast();
+
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -37,6 +42,22 @@ export const LoginScreen = ({ navigation }) => {
     } else if (field === "password") {
       setPassword(value);
     }
+  }
+
+ const  notification = () =>{
+    // toast.show("Hello World",
+    // {
+    //   type: "success",
+    //   placement: "bottom",
+    //   duration: 4000,
+    //   offset: 30,
+    //   animationType: "slide-in",
+    // }
+    // );
+
+    let id = toast.show("Loading...");
+    setTimeout(()=>toast.update(id, "Loading completed", {type: "success"}), 3000);
+
   }
 
   return (
@@ -74,6 +95,9 @@ export const LoginScreen = ({ navigation }) => {
           />
           <Button title='Signup'
             className="mt-5" onPress={() => navigation.navigate('Signup')}
+          />
+
+          <Button title='check in app notification' onPress={() => notification()}
           />
         </View>
       </View>

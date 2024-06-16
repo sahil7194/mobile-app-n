@@ -1,10 +1,13 @@
 import { useState } from "react";
 import axios from "axios";
-// import envirnoments from '../environments/environments'
+import envirnoments from '../environments/environments';
+
 
 //  const  apiUrl = envirnoments.apiUrls;
 
-export const apiUrl = 'http://192.168.145.134/api/';
+// export const apiUrl = 'http://192.168.207.134/api/';
+export const apiUrl = envirnoments.apiUrl;
+
 
 
 export const client = axios.create({
@@ -24,6 +27,7 @@ export const isAuthenticated = () => {
 
 export const login = (formData) => {
   return new Promise((resolve, reject) => {
+   
     client.post('login', formData)
       .then((response) => {
         resolve(response.data);
@@ -42,6 +46,7 @@ export const logout = () => {
 
 export const signUp = (formData) => {
   return new Promise((resolve, reject) => {
+    console.log(formData);
     client.post('signup', formData)
       .then((response) => {
         resolve(response.data);

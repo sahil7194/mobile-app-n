@@ -3,9 +3,8 @@ import { Text, View ,SafeAreaView ,StatusBar , Button } from 'react-native'
 import { useNavigation, useRoute } from '@react-navigation/native'
 
 export const AfterQrCodeScanScree = () => {
-
+  const navigation = useNavigation();
     const route = useRoute();
-
     console.log(route.params);
 
 

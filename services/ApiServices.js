@@ -1,27 +1,30 @@
-
 import axios from "axios";
 import envirnoments from '../environments/environments';
-import {retrieveData } from './LocalStorageService';
+import { retrieveData } from './LocalStorageService';
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
-// TODO: need to update logic
 export const apiUrl = envirnoments.apiUrl;
-// export const apiUrl = 'http://192.168.1.64/api/';
-
-export const authToken = retrieveData('auth_token').
-then((token) => {
-     return token
-    }).catch((err) =>{
-    console.log('error in getting token', err)
-});
 
 const client = axios.create({
-  baseURL: apiUrl,
-  headers: {
-    'Content-Type': 'application/json', 
-    'Authorization': `Bearer ${authToken}`
-  }
-});
-
+    baseURL: apiUrl,
+    headers: {
+      'Content-Type': 'application/json',
+    }
+  });
+  
+  
+  client.interceptors.request.use(
+    async (config) => {
+      const token = await AsyncStorage.getItem("auth_token");
+      if (token) {
+        config.headers.Authorization = `Bearer ${token}`;
+      }
+      return config;
+    },
+    (error) => {
+      return Promise.reject(error);
+    }
+  );
 export const get = (path, queryParams) => {
     return new Promise((resolve, reject) => {
         client.get(path, { params: queryParams })

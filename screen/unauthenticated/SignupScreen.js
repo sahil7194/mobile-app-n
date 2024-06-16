@@ -1,10 +1,17 @@
-import React, { useState } from 'react'
+import React, { useState , useContext} from 'react'
 import { Text, View, SafeAreaView, StatusBar, Button, TextInput } from 'react-native'
 import DatePicker from 'react-native-date-picker'
+import { useNavigation, useRoute } from '@react-navigation/native'
 
 import { signUp } from '../../services/UnauthticatedService';
+import { AuthContext } from '../../Context/AuthContext';
 
-export const SignupScreen = ({ navigation }) => {
+export const SignupScreen = () => {
+
+  const navigation = useNavigation();
+
+  const { auth, setAuth } = useContext(AuthContext);
+
 
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
@@ -24,7 +31,14 @@ export const SignupScreen = ({ navigation }) => {
       "register_by": "mobile"
     }
 
-     signUp(postData).then((res) => { console.log(res)}).catch((err) => console.log(err));    
+     signUp(postData).then((res) => { 
+      console.log(res)
+      if (respsone.status == "success") {
+        storeData('auth_token', respsone.token);
+        setAuth(true);
+        
+      }
+    }).catch((err) => console.log(err));    
 
   }
   return (
